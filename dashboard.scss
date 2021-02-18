@@ -1,0 +1,209 @@
+.main-grid {
+  display: grid;
+  grid-auto-flow: column;
+  margin: 0;
+  padding: 0;
+}
+.main {
+  background: #3498db;
+  height: 15%;
+  width: auto;
+  margin: 20px;
+  padding: 0px 0px 20px 0px;
+  display: grid;
+  grid-auto-flow: column;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 0.2);
+}
+.main .MDSR , .CDR{
+   border: ridge 2px #fff;
+   border-radius: 5px;
+}
+
+.banner {
+  text-align: center;
+  font-family: "Brygada 1918", serif;
+  font-size: 1.5rem;
+  color: #fff;
+  border-radius: 5px;
+}
+.banner hr {
+  margin-top: 0px;
+  border: solid 3px;
+  background: #ffc905;
+}
+
+.container {
+  display: grid;
+  grid-auto-flow: column;
+  flex-wrap: inherit;
+  width: auto;
+  height:auto;
+  text-align: center;
+  margin-left: 0px;
+  padding-top: 40px;
+  padding-bottom: 10px;
+}
+
+.container .box {
+  position: relative;
+  width: auto;
+  height:auto;
+  background: #fff;
+  box-shadow: 0 15px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  margin-right: 15px;
+  padding: 10px;
+  transition: 0.5ms;
+  transition-delay: 0.9ms;
+  opacity: 0.9;
+}
+
+.container .box:hover {
+  border: solid 1px transparent;
+  transition: 0.5ms;
+  transition-delay: 0.9ms;
+}
+
+.container .box .icon {
+  position: absolute;
+  height: auto;
+  width: auto;
+  color: #fff;
+  background: #000;
+  border-radius: 50%;
+  justify-content: center;
+  font-size: 25px;
+  transition: 1s;
+  padding: 0.5rem;
+  
+}
+
+.container .box:nth-child(1) .icon {
+  box-shadow: 0 0 0 0 #ffca29;
+  background: linear-gradient(60deg, #fb8c00, #ffca29);
+}
+
+.container .box:nth-child(1):hover .icon {
+  box-shadow: 0 0 0 300px #fb8c00;
+}
+
+.container .box:nth-child(2) .icon {
+  box-shadow: 0 0 0 0 #f50057;
+  background: linear-gradient(60deg, #f50057, #ff8a80);
+}
+
+.container .box:nth-child(2):hover .icon {
+  box-shadow: 0 0 0 300px #ff8a80;
+}
+
+.container .box:nth-child(3) .icon {
+  box-shadow: 0 0 0 0 #43a047;
+  background: linear-gradient(60deg, #43a047, #ffeb3b);
+}
+
+.container .box:nth-child(3):hover .icon {
+  box-shadow: 0 0 0 300px #43a047;
+}
+
+.container .box:nth-child(4) .icon {
+  box-shadow: 0 0 0 0 #5e35b1;
+  background: linear-gradient(60deg, #5e35b1, #039be5);
+}
+
+.container .box:nth-child(4):hover .icon {
+  box-shadow: 0 0 0 300px #039be5;
+}
+
+.container .box:nth-child(5) .icon {
+  box-shadow: 0 0 0 0 #f50057;
+  background: linear-gradient(60deg, #f50057, #ff8a80);
+}
+
+.container .box:nth-child(5):hover .icon {
+  box-shadow: 0 0 0 300px #ff8a80;
+}
+
+.container .box:nth-child(6) .icon {
+  box-shadow: 0 0 0 0 #43a047; //#e91e63;
+  background: linear-gradient(60deg, #43a047, #ffeb3b);
+}
+
+.container .box:nth-child(6):hover .icon {
+  box-shadow: 0 0 0 300px #43a047;
+}
+
+.container .box .content {
+  position: relative;
+  z-index: 1;
+  transition: 0.5s;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .box:hover .content {
+  justify-content: center;
+  color: #fff;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  border: transparent;
+}
+
+p {
+  display: inline-block;
+  padding: auto;
+  color: #000;
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+  font-size: 1.5rem;
+  margin-top: 5%;
+  margin-left: 10%;
+}
+
+.container .box:before {
+  content: "";
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(255, 255, 255, 0.2);
+  z-index: 2;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 1040px) {
+  [class*="main"] {
+    grid-auto-flow: row;
+    margin-left: 22%;
+    width: 60%;
+  }
+
+  [class*="container"] {
+    grid-auto-flow: row;
+    margin-left: 9%;
+    margin-right:7%;
+    width:auto;
+  }
+
+  .main-grid {
+    grid-auto-flow: row;
+  }
+
+  .container .box .icon {
+    position: absolute;
+    height: auto;
+    width: auto;
+    color: #fff;
+    background: #000;
+    border-radius: 50%;
+    justify-content: center;
+    font-size: 15px;
+    transition: 1s;
+    padding: 0.3rem;
+    margin-top: 1rem;
+  }
+  p{
+    margin-top: 10px;
+    margin-left: auto;
+  }
+}
