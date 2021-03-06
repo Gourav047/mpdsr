@@ -2,6 +2,15 @@
  -------------------------------------------------------------------------
  -------------------------------------------------------------------------
  
+ LockOpenForm: FormGroup;
+ 
+ this.addMoreData();
+ 
+ this.dataArraySection = this.fb.group({
+        data1: this.fb.array([])
+      });
+ 
+ 
  addMoreData(){
     // (<FormArray>this.dataArraySection.get('data1')).push(this.addSkillFromGroup());
     //console.log("Index Data =>", val);
