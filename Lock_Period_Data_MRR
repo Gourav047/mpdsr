@@ -1,0 +1,176 @@
+ //.ts file
+ -------------------------------------------------------------------------
+ -------------------------------------------------------------------------
+ 
+ addMoreData(){
+    // (<FormArray>this.dataArraySection.get('data1')).push(this.addSkillFromGroup());
+    //console.log("Index Data =>", val);
+    const add = this.dataArraySection.get('data1') as FormArray;
+    add.push(this.fb.group({
+      calenderData: [],
+    }))
+    console.log("Index Data =>", this.dataArraySection.value);
+    (!this._changeDetectorRef['destroyed']) ? this._changeDetectorRef.detectChanges() : null;
+  }
+
+   deleteData(index:number){
+    const add = this.dataArraySection.get('data1') as FormArray;
+    add.removeAt(index);
+    (!this._changeDetectorRef['destroyed']) ? this._changeDetectorRef.detectChanges() : null;
+  } 
+
+  getFromDate(event){
+   console.log(event);
+   
+  }
+
+  radioAction(event){
+    console.log("radio event->",event);
+    this.radioData=event;
+  }
+  -------------------------------------------------------------------------
+  -------------------------------------------------------------------------
+  
+  <div class="col-lg-4 m-form__group-sub" [hidden]=!showValidInput>
+                  <ng-container *ngIf="radioData =='Dayvise'; else second">
+                    <mat-form-field style="width:100%;">
+                      <input matInput type="number" (keypress)="numberOnly($event)" required
+                        formControlName="lockingPeriod" [(ngModel)]="textLockOpen" placeholder="Enter Locking Period"
+                        value="">
+                    </mat-form-field>
+                  </ng-container>
+                  <ng-template #second>
+                    <div class="row">
+                      <div class="col-sm-9">
+                        <form [formGroup]="dataArraySection">
+                          <div *ngFor="let data of dataArraySection.get('data1').controls">
+                            <div [formGroup]="data">
+                              <div class="form-groups">
+                                <div class="row">
+                                  <div class="col">
+                                    <mat-form-field>
+                                      <input matInput [matDatepicker]="fromDate1" placeholder="Choose Date"
+                                        (dateChange)="getFromDate($event)" formControlName="calenderData">
+                                      <mat-datepicker-toggle matSuffix [for]="fromDate1"></mat-datepicker-toggle>
+                                      <mat-datepicker #fromDate1></mat-datepicker>
+                                      <mat-error>Enter Locking Period</mat-error>
+                                    </mat-form-field>
+                                  </div>
+                                  <div class="col">
+                                    <button *ngIf="dataArraySection.controls['data1'].length > 1" mat-mini-fab
+                                      color="warn" (click)="deleteData(pointIndex)">
+                                      <mat-icon class="dlt-button">-</mat-icon>
+                                    </button><br /><br />
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- <button mat-mini-fab color="accent" (click)="addMoreData()">+</button> -->
+                        </form>
+                      </div>
+                      <div class="col-sm-2">
+                        <button mat-mini-fab color="accent" (click)="addMoreData()">+</button>
+                      </div>
+                    </div>
+                  </ng-template>
+                </div>
+
+----------------------------------------------------------------------
+----------------------------------------------------------------------
+
+<div class="col-xl-12">
+          <div class="m-form__section m-form__section--first">
+          <div class="form-group m-form__group row">
+          <div class="col-lg-2 m-form__group-sub">
+          <mat-radio-button class="form-control-label" Name="day" (change)="lockOpenCategory('day')">
+          *Days Wise
+          </mat-radio-button>
+          </div>
+          <div class="col-lg-2 m-form__group-sub">
+          <mat-radio-button class="form-control-label" Name="day" (change)="lockOpenCategory('date')">
+          *Date Wise
+          </mat-radio-button>
+          </div>
+          </div>
+          </div>
+          </div>
+          </div>
+          <br><br>
+          -----------------------------------------------------------------------------
+          -----------------------------------------------------------------------------
+          CSS
+          
+          .contaner {
+    width: 100%;
+    height: 30px;
+    margin: 0px 0px 45px 131px;
+    padding: 0px 0px 5px 16px;
+}
+
+   
+.contaner .lbl {
+  margin: 0px 10px 0px 40px;
+  font-weight: 500;
+  color: #1f1f1f;
+}
+
+.lbl1{
+  margin-bottom: .5rem;
+  margin: 0px 10px 0px 38px;
+}
+
+.rd1 {
+  position: relative;
+  outline: none;
+  margin: 10px 23px -5px 23px;
+  width: 50px;
+  height: 18px;
+  background: #555;
+  -webkit-appearance: none;
+  cursor: pointer;
+  border-radius: 20px;
+  box-shadow: -5px -5px 20px rgba(255, 255, 255, 0.1),
+    5px 5px 10px rgba(218, 214, 214, 1), inset 2px 2px 5px rgba(255, 255, 255, 0.1),
+    inset 2px 2px 5px rgba(191 ,187, 187 , 50%), 0 0 0 2px#b1acac;
+}
+
+.rd1:checked {
+  background: #fff;
+}
+
+.rd1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 25px;
+  height: 18px;
+  background: linear-gradient(to top,  #35baa0, #34bfa3);
+  border-radius: 20px;
+  box-shadow: 0 0 0 1px #232323;
+  transform: scale(0.98, 0.96);
+  transition: 0.5s;
+}
+
+.rd1:checked::before {
+  left: 26px;
+}
+
+.date{
+  margin-left: 50%;
+  margin-bottom: 50px;
+}
+
+.button-section{
+  margin-top: 10px;
+}
+.example-form-field {
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 480px){
+
+}
+-----------------------------------------------------------------------------------------------
+                
